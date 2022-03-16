@@ -8,16 +8,17 @@ import Single from "./pages/Single/Single";
 import Write from "./pages/Write/Write";
 
 function App() {
+  const user = true; 
   return (
     <div className="App">
        <TopBar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/post/:postId' element={<Single />} />
-        <Route path='/write' element={<Write />} />
-        <Route path='/settings' element={<Settings />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
+        <Route path='/write' element={user ? <Write /> : <Login />} />
+        <Route path='/settings' element={user ? <Settings /> : <Login />} />
+        <Route path='/login' element={user ? <Home /> : <Login />} />
+        <Route path='/register' element={user ? <Home /> : <Register />} />
       </Routes>
     </div>
   );
