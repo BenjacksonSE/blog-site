@@ -1,3 +1,4 @@
+import { Routes, Route, Link } from "react-router-dom";
 import TopBar from "./components/Topbar/TopBar";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
@@ -9,13 +10,15 @@ import Write from "./pages/Write/Write";
 function App() {
   return (
     <div className="App">
-      <TopBar />
-      {/* <Home /> */}
-      {/* <Single /> */}
-      {/* <Write /> */}
-      {/* <Settings /> */}
-      {/* <Login /> */}
-      <Register />
+       <TopBar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/post/:postId' element={<Single />} />
+        <Route path='/write' element={<Write />} />
+        <Route path='/settings' element={<Settings />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+      </Routes>
     </div>
   );
 }
