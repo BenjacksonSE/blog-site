@@ -4,15 +4,16 @@ const Post = require("../models/Post");
 
 
 //Create
-router.post('/:id', async (req,res)=>{
+router.post("/", async (req, res) => {
   const newPost = new Post(req.body);
-  try{
+  try {
     const savedPost = await newPost.save();
     res.status(200).json(savedPost);
-  }catch(err){
+  } catch (err) {
     res.status(500).json(err);
   }
 });
+
 
 //Update
 router.delete('/:id', async (req,res)=>{
