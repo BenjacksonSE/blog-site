@@ -8,7 +8,7 @@ import Single from "./pages/Single/Single";
 import Write from "./pages/Write/Write";
 
 function App() {
-  const user = true; 
+  const user = false; 
   return (
     <div className="App">
        <TopBar />
