@@ -1,4 +1,4 @@
-import './Posts.css'
+import './Post.css'
 
 const Posts = () => {
   return (
