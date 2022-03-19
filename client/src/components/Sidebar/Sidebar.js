@@ -2,6 +2,7 @@ import './Sidebar.css'
 import { FaTwitter, FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 
 const Sidebar = () => {
   const [categories, setCategories] = useState([]);
@@ -30,7 +31,9 @@ const Sidebar = () => {
         <span className='sidebarTitle'>CATEGORIES</span>
         <ul className='sidebarList'>
           {categories.map((c)=>(
-            <li className='sidebarListItem'>{c.name}</li>
+            <Link to={`/?category=${c.name}`} className='link'>
+              <li className='sidebarListItem'>{c.name}</li>
+            </Link>
           ))}
         </ul>
       </div>

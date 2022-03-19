@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 import { useLocation} from 'react-router'
 import axios from 'axios';
 import {FaRegEdit, FaRegTrashAlt} from 'react-icons/fa'
+import {Link} from "react-router-dom";
 
 const SinglePost = () => {
   const location = useLocation();
@@ -30,7 +31,10 @@ const SinglePost = () => {
           </div>
         </h1>
         <div className='singlePostInfo'>
-          <span className='singlePostAuthor'>Author: <b>{post.username}</b></span>
+          <span className='singlePostAuthor'>Author: 
+          <Link to={`/?user=${post.username}`} className='link'>
+            <b>{post.username}</b>
+          </Link></span>
           <span className='singlePostDate'>{new Date(post.createdAt).toDateString()}</span>
         </div>
         <p className='singlePostDesc'>
