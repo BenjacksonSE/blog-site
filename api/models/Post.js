@@ -14,6 +14,10 @@ const PostSchema = new mongoose.Schema({
     type:String,
     required:true
   },
+  pic: {
+    type: String,
+    required: false,
+  },
   categories:{
     type:Array,
     required:false

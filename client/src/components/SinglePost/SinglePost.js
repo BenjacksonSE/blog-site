@@ -1,7 +1,10 @@
 import './SinglePost.css'
+import { useLocation} from 'react-router'
 import {FaRegEdit, FaRegTrashAlt} from 'react-icons/fa'
 
 const SinglePost = () => {
+  const location = useLocation();
+  console.log(location.pathname.split('/')[2]);
   return (
     <div className='singlePost'>
       <div className='singlePostWrapper'>
