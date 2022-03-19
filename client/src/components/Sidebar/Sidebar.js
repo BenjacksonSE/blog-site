@@ -1,7 +1,18 @@
 import './Sidebar.css'
 import { FaTwitter, FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
+import {useState, useEffect} from 'react';
+import axios from 'axios';
 
 const Sidebar = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(()=>{
+    const getCategories = async ()=>{
+      const res = await axios.get("/categories");
+      setCategories(res.data)
+    }
+    getCategories();
+  },[])
   return (
     <div className='sidebar'>
       <div className='sidebarItem'>
@@ -18,12 +29,9 @@ const Sidebar = () => {
       <div className='sidebarItem'>
         <span className='sidebarTitle'>CATEGORIES</span>
         <ul className='sidebarList'>
-          <li className='sidebarListItem'>Life</li>
-          <li className='sidebarListItem'>Music</li>
-          <li className='sidebarListItem'>Style</li>
-          <li className='sidebarListItem'>Sport</li>
-          <li className='sidebarListItem'>Tech</li>
-          <li className='sidebarListItem'>Movies</li>
+          {categories.map((c)=>(
+            <li className='sidebarListItem'>{c.name}</li>
+          ))}
         </ul>
       </div>
       <div className="sidebarItem">
