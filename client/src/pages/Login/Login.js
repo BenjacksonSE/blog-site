@@ -1,13 +1,12 @@
-import './Login.css'
-import {Link} from 'react-router-dom';
-import {useRef, useContext} from 'react';
-import { Context } from '../../context/Context';
-import axios from 'axios';
+import axios from "axios";
+import { useContext, useRef } from "react";
+import { Link } from "react-router-dom";
+import { Context } from "../../context/Context";
+import "./Login.css";
 
-const Login = () => {
-
+export default function Login() {
   const userRef = useRef();
-  const passwordRef = useRef()
+  const passwordRef = useRef();
   const { dispatch, isFetching } = useContext(Context);
 
   const handleSubmit = async (e) => {
@@ -23,22 +22,34 @@ const Login = () => {
       dispatch({ type: "LOGIN_FAILURE" });
     }
   };
-  
+
   return (
-    <div className='login'>
-      <span className='loginTitle'>Login</span>
-      <form className='loginForm' onSubmit={handleSubmit}>
+    <div className="login">
+      <span className="loginTitle">Login</span>
+      <form className="loginForm" onSubmit={handleSubmit}>
         <label>Username</label>
-          <input className='loginInput' type='text' placeholder='Enter your username...' ref={userRef}/>
+        <input
+          type="text"
+          className="loginInput"
+          placeholder="Enter your username..."
+          ref={userRef}
+        />
         <label>Password</label>
-          <input className='loginInput' type='password' placeholder='Enter your password...' ref={passwordRef}/>
-        <button className='loginButton' type='submit'>Login</button>
+        <input
+          type="password"
+          className="loginInput"
+          placeholder="Enter your password..."
+          ref={passwordRef}
+        />
+        <button className="loginButton" type="submit" disabled={isFetching}>
+          Login
+        </button>
       </form>
-      <button className='loginRegisterButton'>
-        <Link to="/register" className='link'>Register</Link>
+      <button className="loginRegisterButton">
+        <Link className="link" to="/register">
+          Register
+        </Link>
       </button>
     </div>
-  )
+  );
 }
-
-export default Login
