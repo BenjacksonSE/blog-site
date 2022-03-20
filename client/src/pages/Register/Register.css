@@ -49,3 +49,8 @@
   padding: 10px;
   color: white;
 }
+
+.errorHandle{
+  color: red;
+  margin-top: 10px;
+}
