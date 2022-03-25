@@ -11,7 +11,6 @@ import { Context } from "./context/Context";
 
 function App() {
   const {user} = useContext(Context);
-  // const user = false;
   return (
     <div className="App">
        <TopBar />
