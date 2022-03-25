@@ -40,7 +40,7 @@ const TopBar = () => {
       <div className='topRight'>
         {
           user ? (
-            <img src='https://avatars.githubusercontent.com/u/91221815?v=4' alt='' className='topImg'/>
+            <img src={user.profilepic} alt='' className='topImg'/>
           ) : (
             <ul className='topList'>
               <li className='topListItem'>
