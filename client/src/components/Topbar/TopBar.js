@@ -23,7 +23,7 @@ const TopBar = () => {
             <Link to="/" className='link'>HOME</Link>
           </li>
           <li className='topListItem'>
-            <Link to="/" className='link'>PORTFOLIO</Link>
+            <a href='https://benjacksonse.com/' target="_blank" rel="noreferrer" className='link'>PORTFOLIO</a>
           </li>
           <li className='topListItem'>
             <Link to="/write" className='link'>NEW POST</Link>

@@ -19,12 +19,12 @@ const Sidebar = () => {
       <div className='sidebarItem'>
         <span className='sidebarTitle'>ABOUT ME</span>
         <img
-          src="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/grandblog/demo/wp-content/uploads/2015/11/aboutme.jpg"
+          src="http://localhost:3000/images/sidebarImg.jpeg"
           alt=""
+          className="sidebarImg"
         />
         <p>
-          Laboris sunt aute cupidatat velit magna velit ullamco dolore mollit
-          amet ex esse.Sunt eu ut nostrud id quis proident.
+          My name is Ben Jackson, I am a Full Stack software developer based in Brooklyn, New York.  I occasionally write blog posts on new things I’m learning and stuff I find related to tech.  Follow my socials and check out my portfolio!
         </p>
       </div>
       <div className='sidebarItem'>
@@ -40,10 +40,9 @@ const Sidebar = () => {
       <div className="sidebarItem">
         <span className='sidebarTitle'>FOLLOW ME</span>
         <div className='sidebarSocials'>
-          <FaTwitter className='sidebarIcon'/>
-          <FaGithub className='sidebarIcon'/>
-          <FaLinkedin className='sidebarIcon'/>
-          <FaInstagram className='sidebarIcon' />
+          <a href='https://twitter.com/Benjacksonse' target="_blank" rel="noreferrer" className='sidebarIcon'><FaTwitter/></a>
+          <a href='https://github.com/BenjacksonSE' target="_blank" rel="noreferrer" className='sidebarIcon'><FaGithub/></a>
+          <a href='https://www.linkedin.com/in/benjamin-jackson-864148225/' target="_blank" rel="noreferrer" className='sidebarIcon'><FaLinkedin/></a>
         </div>
       </div>
     </div>
