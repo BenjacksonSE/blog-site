@@ -12,6 +12,9 @@ const SinglePost = () => {
   const [post, setPost] = useState({});
   const PF = 'http://localhost:3000/images/';
   const {user} = useContext(Context);
+  const [title, setTitle] = useState('');
+  const [desc, setDesc] = useState('');
+  const [editMode, setEditmode] = useState(false);
   useEffect(() =>{
     const getPost = async ()=>{
       const res = await axios.get("/posts/" + path);
@@ -35,15 +38,17 @@ const SinglePost = () => {
         {PF + post.photo &&(
           <img className="singlePostImg" src={PF + post.photo} alt=''/>  
         )}
-        <h1 className='singlePostTitle'>
+        {editMode ? <input type='text' value={post.title}/> : (
+          <h1 className='singlePostTitle'>
           {post.title}
           {post.username === user?.username &&(
             <div className='singlePostEdit'>
-              <FaRegEdit className='singlePostIcon'/>
+              <FaRegEdit className='singlePostIcon' onClick={()=>setEditmode(true)}/>
               <FaRegTrashAlt className='singlePostIcon' onClick={handleDelete}/>
             </div>
           )}
-        </h1>
+          </h1>
+        )}
         <div className='singlePostInfo'>
           <span className='singlePostAuthor'>Author: 
           <Link to={`/?user=${post.username}`} className='link'>
