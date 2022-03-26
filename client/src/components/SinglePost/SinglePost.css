@@ -18,13 +18,13 @@
 .singlePostTitle {
   text-align: center;
   margin: 10px;
-  font-family: "Lora", serif;
+  font-family: 'Roboto Mono', monospace;
   font-size: 28px;
 }
 
 .singlePostTitleInput {
   margin: 10px;
-  font-family: "Lora", serif;
+  font-family: 'Roboto Mono', monospace;
   font-size: 28px;
   text-align: center;
   border: none;
