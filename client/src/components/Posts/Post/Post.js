@@ -5,8 +5,8 @@ const Posts = ({post}) => {
   const PF = 'http://localhost:3000/images/';
   return (
     <div className='post'>
-      {post.pic && (
-        <img className="postImg" src={PF + post.pic} alt=''/>
+      {post.photo && (
+        <img className="postImg" src={PF + post.photo} alt=''/>
       )}
       <div className='postInfo'>
         <div className='postCats'>

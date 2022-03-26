@@ -21,8 +21,8 @@ const SinglePost = () => {
   return (
     <div className='singlePost'>
       <div className='singlePostWrapper'>
-        {PF + post.pic &&(
-          <img className="singlePostImg" src={post.pic} alt=''/>  
+        {PF + post.photo &&(
+          <img className="singlePostImg" src={PF + post.photo} alt=''/>  
         )}
         <h1 className='singlePostTitle'>
           {post.title}
