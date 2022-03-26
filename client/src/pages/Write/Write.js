@@ -22,7 +22,7 @@ const Write = () => {
       const filename = Date.now() + file.name;
       data.append('name',filename)
       data.append('file',file)
-      newPost.pic = filename;
+      newPost.photo = filename;
       try{
         await axios.post('/upload', data)
       }catch(err){
