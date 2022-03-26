@@ -51,7 +51,7 @@ const SinglePost = () => {
         )}
         {editMode ? <input type='text' value={title} className='singlePostTitleInput' onChange={(e)=>setTitle(e.target.value)}/> : (
           <h1 className='singlePostTitle'>
-          {post.title}
+          {title}
           {post.username === user?.username &&(
             <div className='singlePostEdit'>
               <FaRegEdit className='singlePostIcon' onClick={()=>setEditmode(true)}/>
@@ -70,7 +70,7 @@ const SinglePost = () => {
         {editMode ? (
           <textarea className='singlePostDescInput' value={desc} onChange={(e)=>setDesc(e.target.value)}/>) : (
           <p className='singlePostDesc'>
-            {post.desc}
+            {desc}
           </p>
           )}
           {editMode && <button className='singlePostButton' onClick={handleUpdate}>Save Changes</button>}

@@ -13,10 +13,9 @@ const TopBar = () => {
   return (
     <div className='top'>
       <div className='topLeft'>
-        <FaTwitter className='topIcon'/>
-        <FaGithub className='topIcon'/>
-        <FaLinkedin className='topIcon'/>
-        <FaInstagram className='topIcon' />
+        <a href='https://twitter.com/Benjacksonse' target="_blank" rel="noreferrer" className='topIcon'><FaTwitter/></a>
+        <a href='https://github.com/BenjacksonSE' target="_blank" rel="noreferrer" className='topIcon'><FaGithub/></a>
+        <a href='https://www.linkedin.com/in/benjamin-jackson-864148225/' target="_blank" rel="noreferrer" className='topIcon'><FaLinkedin/></a>
       </div>
       <div className='topCenter'>
         <ul className='topList'>
@@ -24,15 +23,12 @@ const TopBar = () => {
             <Link to="/" className='link'>HOME</Link>
           </li>
           <li className='topListItem'>
-            <Link to="/" className='link'>ABOUT</Link>
+            <Link to="/" className='link'>PORTFOLIO</Link>
           </li>
           <li className='topListItem'>
-            <Link to="/" className='link'>CONTACT</Link>
+            <Link to="/write" className='link'>NEW POST</Link>
           </li>
-          <li className='topListItem'>
-            <Link to="/write" className='link'>WRITE</Link>
-          </li>
-          <li className='topListItem' onClick={handleLogout}>
+          <li className='topListItem topLogout' onClick={handleLogout}>
             {user && "LOGOUT"}
           </li>
         </ul>
@@ -40,7 +36,10 @@ const TopBar = () => {
       <div className='topRight'>
         {
           user ? (
-            <img src={user.profilepic} alt='' className='topImg'/>
+            <>
+              <img src={user.profilepic} alt='' className='topImg'/>
+              <div className='topUsername'>{user.username}</div>
+            </>
           ) : (
             <ul className='topList'>
               <li className='topListItem'>
@@ -53,7 +52,7 @@ const TopBar = () => {
           )
         }
         
-        <FaSearch className='topSearchIcon'/>
+        {/* <FaSearch className='topSearchIcon'/> */}
       </div>
     </div>
   )
