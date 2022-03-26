@@ -38,7 +38,7 @@ const SinglePost = () => {
         {PF + post.photo &&(
           <img className="singlePostImg" src={PF + post.photo} alt=''/>  
         )}
-        {editMode ? <input type='text' value={post.title}/> : (
+        {editMode ? <input type='text' value={post.title} className='singlePostTitleInput'/> : (
           <h1 className='singlePostTitle'>
           {post.title}
           {post.username === user?.username &&(
@@ -56,9 +56,13 @@ const SinglePost = () => {
           </Link></span>
           <span className='singlePostDate'>{new Date(post.createdAt).toDateString()}</span>
         </div>
-        <p className='singlePostDesc'>
-          {post.desc}
-        </p>
+        {editMode ? (
+          <textarea className='singlePostDescInput'/>) : (
+          <p className='singlePostDesc'>
+            {post.desc}
+          </p>
+          )
+        }   
       </div>
     </div>
   )
