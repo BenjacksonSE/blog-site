@@ -28,9 +28,6 @@ const TopBar = () => {
           <li className='topListItem'>
             <Link to="/write" className='link'>NEW POST</Link>
           </li>
-          <li className='topListItem topLogout' onClick={handleLogout}>
-            {user && "LOGOUT"}
-          </li>
         </ul>
       </div>
       <div className='topRight'>
@@ -38,7 +35,10 @@ const TopBar = () => {
           user ? (
             <>
               <img src={user.profilepic} alt='' className='topImg'/>
-              <div className='topUsername'>{user.username}</div>
+              {/* <div className='topUsername'>{user.username}</div> */}
+              <div className='topListItem topLogout' onClick={handleLogout}>
+                LOGOUT
+              </div>
             </>
           ) : (
             <ul className='topList'>
