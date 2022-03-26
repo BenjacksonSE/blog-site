@@ -18,7 +18,16 @@ const SinglePost = () => {
       setPost(res.data)
     }
     getPost();
-  }, [path])
+  }, [path]);
+
+  const handleDelete = async () =>{
+    try{
+      await axios.delete("posts/" + path, {username:user.username});
+       window.location.replace('/');
+    }catch(err){
+
+    }
+  }
 
   return (
     <div className='singlePost'>
@@ -31,7 +40,7 @@ const SinglePost = () => {
           {post.username === user?.username &&(
             <div className='singlePostEdit'>
               <FaRegEdit className='singlePostIcon'/>
-              <FaRegTrashAlt className='singlePostIcon'/>
+              <FaRegTrashAlt className='singlePostIcon' onClick={handleDelete}/>
             </div>
           )}
         </h1>
