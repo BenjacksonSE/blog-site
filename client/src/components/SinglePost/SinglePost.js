@@ -19,6 +19,8 @@ const SinglePost = () => {
     const getPost = async ()=>{
       const res = await axios.get("/posts/" + path);
       setPost(res.data)
+      setTitle(res.data.title);
+      setDesc(res.data.desc);
     }
     getPost();
   }, [path]);
@@ -32,13 +34,22 @@ const SinglePost = () => {
     }
   }
 
+  const handleUpdate = async () => {
+    try{
+      await axios.put("/posts/" + path, {username:user.username, title, desc});
+       window.location.reload();
+    }catch(err){
+
+    }
+  }
+
   return (
     <div className='singlePost'>
       <div className='singlePostWrapper'>
         {PF + post.photo &&(
           <img className="singlePostImg" src={PF + post.photo} alt=''/>  
         )}
-        {editMode ? <input type='text' value={post.title} className='singlePostTitleInput'/> : (
+        {editMode ? <input type='text' value={title} className='singlePostTitleInput' onChange={(e)=>setTitle(e.target.value)}/> : (
           <h1 className='singlePostTitle'>
           {post.title}
           {post.username === user?.username &&(
@@ -57,12 +68,12 @@ const SinglePost = () => {
           <span className='singlePostDate'>{new Date(post.createdAt).toDateString()}</span>
         </div>
         {editMode ? (
-          <textarea className='singlePostDescInput'/>) : (
+          <textarea className='singlePostDescInput' value={desc} onChange={(e)=>setDesc(e.target.value)}/>) : (
           <p className='singlePostDesc'>
             {post.desc}
           </p>
-          )
-        }   
+          )}
+          <button className='singlePostButton' onClick={handleUpdate}>Save Changes</button>   
       </div>
     </div>
   )
