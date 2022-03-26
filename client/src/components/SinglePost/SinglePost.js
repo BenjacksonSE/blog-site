@@ -1,15 +1,17 @@
 import './SinglePost.css'
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useContext} from 'react';
 import { useLocation} from 'react-router'
 import axios from 'axios';
 import {FaRegEdit, FaRegTrashAlt} from 'react-icons/fa'
 import {Link} from "react-router-dom";
+import {Context} from './../../context/Context'; 
 
 const SinglePost = () => {
   const location = useLocation();
   const path = location.pathname.split('/')[2];
   const [post, setPost] = useState({});
   const PF = 'http://localhost:3000/images/';
+  const {user} = useContext(Context);
   useEffect(() =>{
     const getPost = async ()=>{
       const res = await axios.get("/posts/" + path);
@@ -26,10 +28,12 @@ const SinglePost = () => {
         )}
         <h1 className='singlePostTitle'>
           {post.title}
-          <div className='singlePostEdit'>
-            <FaRegEdit className='singlePostIcon'/>
-            <FaRegTrashAlt className='singlePostIcon'/>
-          </div>
+          {post.username === user?.username &&(
+            <div className='singlePostEdit'>
+              <FaRegEdit className='singlePostIcon'/>
+              <FaRegTrashAlt className='singlePostIcon'/>
+            </div>
+          )}
         </h1>
         <div className='singlePostInfo'>
           <span className='singlePostAuthor'>Author: 
