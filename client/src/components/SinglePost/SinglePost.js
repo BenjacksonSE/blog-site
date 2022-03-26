@@ -73,7 +73,8 @@ const SinglePost = () => {
             {post.desc}
           </p>
           )}
-          <button className='singlePostButton' onClick={handleUpdate}>Save Changes</button>   
+          {editMode && <button className='singlePostButton' onClick={handleUpdate}>Save Changes</button>}
+             
       </div>
     </div>
   )
