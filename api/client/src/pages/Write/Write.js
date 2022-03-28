@@ -1,8 +1,8 @@
 import './Write.css'
 import {FaPlus} from 'react-icons/fa'
 import {useState, useContext} from 'react';
-import {Context} from './../../context/Context'; 
-import axios from 'axios';
+import {Context} from '../../context/Context'; 
+import {axiosInstance} from '../../../utils';
 
 const Write = () => {
   const [title, setTitle] = useState('');
@@ -24,13 +24,13 @@ const Write = () => {
       data.append('file',file)
       newPost.photo = filename;
       try{
-        await axios.post('/upload', data)
+        await axiosInstance.post('/upload', data)
       }catch(err){
 
       }
     }
     try{
-      const res = await axios.post('/posts', newPost)
+      const res = await axiosInstance.post('/posts', newPost)
       window.location.replace('/post/' + res.data._id)
     }catch(err){
 

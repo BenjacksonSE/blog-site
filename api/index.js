@@ -35,6 +35,12 @@ app.use('/api/users', usersRoute);
 app.use('/api/posts', postsRoute);
 app.use('/api/categories', categoriesRoute);
 
-app.listen('3000', ()=>{
+app.use(express.static(path.join(__dirname, "/client/build")));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
+});
+
+app.listen(process.env.PORT || 3000, ()=>{
   console.log("Backend is ago")
 });

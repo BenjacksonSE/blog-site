@@ -1,7 +1,7 @@
 import './Sidebar.css'
 import { FaTwitter, FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
 import {useState, useEffect} from 'react';
-import axios from 'axios';
+import {axiosInstance} from '../../../utils';
 import {Link} from 'react-router-dom'
 
 const Sidebar = () => {
@@ -9,7 +9,7 @@ const Sidebar = () => {
 
   useEffect(()=>{
     const getCategories = async ()=>{
-      const res = await axios.get("/categories");
+      const res = await axiosInstance.get("/categories");
       setCategories(res.data)
     }
     getCategories();

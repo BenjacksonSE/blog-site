@@ -47,11 +47,11 @@
 }
 
 .singlePostIcon:first-child {
-  color: teal;
+  color: grey;
 }
 
 .singlePostIcon:last-child {
-  color: tomato;
+  color: red;
 }
 
 .singlePostInfo {
@@ -59,8 +59,8 @@
   display: flex;
   justify-content: space-between;
   font-size: 16px;
-  font-family: "Varela Round", sans-serif;
-  color: #b39656;
+  font-family: 'Roboto Mono', monospace;
+  color: black;
 }
 
 .singlePostDesc {
@@ -88,7 +88,7 @@
 .singlePostButton {
   width: 100px;
   border: none;
-  background-color: teal;
+  background-color: grey;
   padding: 5px;
   color: white;
   border-radius: 5px;
